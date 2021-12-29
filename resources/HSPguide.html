@@ -1,135 +1,94 @@
 <!DOCTYPE html>
 <html>
-<head><title>How do High-Speed Cameras Work?</title></head>
-<body>
-<h1>How do High-Speed Cameras Work?</h1>
-<h2>A general guide to the field of high-speed photography</h2>
-<hr>
-<p>Many books and papers pertaining to "traditional" opto-mechanical high speed cameras are devoid of much
-in-depth information about them, and as a result it can be difficult to understand their exact inner workings without considerable time and effort. For example, I myself only really started to understand how rotating mirror cameras worked when I tried making one.<br>
-This resource is meant to give an in-depth understanding of all types of high-speed cameras; from the early opto-mechanical types to modern digital designs. I won't include much math since it really is not necessary unless you are looking to not only build a high-speed camera, but optimize it. There is a considerable amount of variation between designs, so while I may not cover all of the different iterations the basic principles addressed should be enough to allow for an understanding of the more esoteric types. 
-<br> The basic layout of this resource is partially borrowed from A. S. Dubovik's book "The Photographic 
-Recording of High-Speed Processes", but since there has been considerable advancement in the field since the last edition (Published 1984) I will be adding more categories.<br><br>
-The reader may be inclined to inquire about the sources I have for this information. I'm not planning on a bibliography for now (mostly due to laziness), but please contact me if you are unsure of some information I have provided or if you would like to see a source.</p>
-<hr>
-<h2>Table of Contents</h2>
-<p>
-<ol>
-<li> Introduction
-<li> Sequentially shuttered cameras
-<li> Intermittent Cameras
-<li> Continuous feed streak (including rotating drum)
-<li> Rotating mirror streak cameras
-<li> Rotating mirror optically compensated cameras (stationary film)
-<li> Rotating mirror optically compensated cameras (moving film)
-<li> Image dissection cameras
-<li> High-speed holography
-<li> Electron converter based systems
-<li> Digital High-Speed Cameras
-<li> Compressed sensing
-<li> Mirror dynamics
-<li> Light-sensitive devices
-<li> Light sources
-</ol>
-</p>
+    <head>
+        <title>
+            How do High-Speed Cameras Work?
+        </title>
+    </head>
 
-<div>
-<hr>
-<h2>1. Introduction</h2>
-<p>
-So what do all high-speed cameras have in common? The <i>Focal Encyclopedia of Photography</i> provides a convenient definition according to a camera's frame rate. The frame rate of a camera is simply the number of photos it can take per period of time (usually one second). A view camera may accomplish 1 frame every 5 minutes, a good digital camera can do 8-20 frames per second, and video cameras usually range from 20-30 frames per second. Calling one's camera "high-speed" usually implies it can do considerably above the normal ~30 fps of a video camera. To give a quick summary of the technological progression of the field, 1.5 billion frames per second was possible as early as the 60's. Modern image intensifier shuttered cameras can achieve an excess of 100 billion frames per second and specialized research devices have achieved over 70 <i>trillion</i> frames per second. 
-<ol>
-<li> High Speed - From 50 to 500 frames per second (FPS)
-<li> Very High Speed - From 500 to 100,000 FPS
-<li> Ultra high speed - 100,000 to 10 million FPS (10 megaframes per second) 
-<li> Super high speed - >10 megaframes per second
-</ol>
-These boundaries are obviously not binding and often it is more convenient to label everything above 1 million fps "ultra high speed". At any rate, when discussing a specific camera, I will give max FPS specifications anyways, so these divisions are not used very much. 
-</p>
-<p>
-<h3>So why is high-speed photography useful, anyways?</h3>
-There are so many applications of high-speed photography that it would take a book to list each niche. I'll give a few broad areas that are of note. 
-<ul>
-<li>Explosives characterization/detonics was a big driver of the field in its early years and still is a big use case
-<li>Characterization of mechanical devices (jet engines are a good example, but even sewing machines benefit)
-<li>Ballistics (anything from bullets to tank shells)
-<li>Natural phenomena; from birds to arc formation
-<li>Lasers and ultrafast optics
-<li>And much more!
-</ul>
-</p>
-<p>
-<h3>Some definitions</h3>
-Here are a couple definitions for commonly used words/phrases that may be a bit confusing to the reader.
-<br><br>
-"Framing camera" refers to a camera that takes discrete 2-d images in sequence - for example, a cell phone camera would be a framing camera. In this context it refers to a high speed camera, of course. 
-<br><br>
-"Streak camera" - please refer to the section about streak cameras
-<br><br>
-"Temporal resolution" - In essence the maximum frame rate of the camera 
-<br><br>
-"Frame/Framing rate" - Specifies the FPS (frame per second) range of the camera (or sometimes just the maximum FPS)
-<br><br>
-"Frame count" - Not to be confused with the framing rate, the frame count specifies the number of frames a camera can take in one "burst" before needing to be "reset". For film based systems, the exposed film must be replaced with fresh film before another round of photography can commence, and for many digital systems there is a storage space or readout speed limitation. As a general guideline, most high-speed camera systems that operate above a million fps are severely limited in terms of frame count - usually ~100. This implies that playing the frames in sequence from one of these systems at normal motion picture speeds (24 fps) would give a mere 4 seconds of video. 
-</p>
-
-</div>
-<hr>
-<div>
-<h2>2. Sequentially shuttered cameras</h2>
-These cameras are perhaps the easiest to describe and have historically been the highest-performing designs, with some tradeoffs. 
-<br><br>
-There are three elements to pretty much every camera:
-<ol>
-<li>A means of forming an optical image on a surface (usually a lens)
-<li>A means of recording that image (nowadays mostly digital image sensors such as a CCD or CMOS sensor)
-<li>A means of controlling when the image is taken (usually a shutter, either on the sensor or a separate unit)
-</ol>
-A sequentially shuttered high-speed camera simply takes this concept further. It groups together multiple camera units, all pointed at the same direction/object, and fires the shutters one after another very quickly. The shutters of these cameras usually end up being very complicated as to increase the framing rate of the camera, one must increase the speed of the shutter (the off-on-off time). These cameras have speeds ranging from tens of thousands to up to 100 billion frames per second in modern versions that use image intensifiers to shutter the image. 
-<br><br>
-There are also varying arrangements of these camera units. Most modern designs (See Specialised Imaging's SIMX Cameras, Stanford Computer Optic's XXRapidFrame, or Cordin's Model 214/222) use a single entrance objective arrangement, which allows for considerable versatility (interchangeable lenses). A beamsplitter or mirror arrangment is used to feed the light from the single entrance lens into the multiple camera units. 
-<br><br>
-In contrast, some earlier cameras such as those used by the British for their atom bomb tests were simply an array of cameras pointed in the same direction. These minimized parallax as atomic bomb tests generally occur quite far away from the camera and long focal length lenses could be used. 
-<br><br>
-While these cameras seem very advantageous given their high temporal resolution, there are numerous disadvantages that limit their use. Since a separate camera unit is necessary for <i>each</i> frame that is taken, any frame count above 16-ish is economically infeasible. Image intensifier units for military use are generally several thousand dollars each, and those for specialized high-speed use are even pricier, and since one shutter is necessary for <i>each</i> frame, economic considerations severely limit frame count. One should keep in mind that 1 second of normal motion picture footage takes up 24 frames, so these cameras are rarely used for video analysis. 
-<br><br>
-The beamsplitting arrangement that is commonly used is also not advantageous. The light from the entrance lens must be divided between 8 or more channels, which means the amount of light getting to each individual channel is 1/n the light the entrance lens "puts out", n being the frame count. With modern image intensifiers this is not much of an issue as their gain can be upwards of 10,000, but for the most demanding low-light applications this can still be limiting. Additionally, the mirror pupil beamsplitting arrangement (or separate camera) results in slight parallax error which is highly undesireable for photogrammetric applications. 
-<hr>
-<div>
-<h2>3. Intermittent Cameras</h2>
-<p>
-Intermittent cameras are quite frequently seen if one entered the film industry before ~2010, has ever made a home movie before ~1990, or is an enthusiast of the various non-digital motion picture film formats. This, of course, refers to the motion picture camera. High-speed intermittent cameras operate on the exact same principle as a normal non-digital movie camera, but the mechanism is sped up considerably. While normal movie cameras run at 24 frames per second, 16mm high speed intermittent cameras have achieved 1,000 fps. 
-<br><br>
-The essential workings of an intermittent camera are quite simple. There are are usually three components to such a system:
-<ol>
-<li>A shutter
-<li>A pulldown mechanism
-<li>Registration pins
-</ol>
-The shutter is usually a continually rotating opaque disc with one or more slots cut radially into it (of varying angular widths usually from 0-180 degrees) that is placed in front of the lens. The shutter is precisely synchronized with the pulldown mechanism so when the pulldown mechanism is advancing the film, the shutter is blocking the light from the lens, and when the film is stationary, the shutter lets light through. 
-<br><br>
-The pulldown mechanism's function is to advance the strip of film (100-2000 feet long that is unspooled and re-spooled) forward one frame. The size of the frame varies from about a square centimeter for 16mm to ~15 square centimeters for a square 70mm frame (as is ocasionally used for engineering cameras), and the main determinant of frame rate is the length of the film (in the direction of the strip), as the pulldown mechanism will tear sprockets if the film is accelerated too quickly. 
-<br><br>
-There are many different methods high-speed intermittent mechanisms use to accomplish the same task. Some (such as used in Photosonics cameras) are simply beefed-up even more precise versions of their motion picture counterparts, while others (Milliken) have used ingenous eccentric wheel mechanisms.
-<br><br>
-The registration pins are not necessary, but are used in many designs, especially those for 35 or 70mm film. This allows for superior image stability compared to non-registered footage as the registration pins slide into the sprocket holes and secure each frame in nearly the exact same location as the previous frame. Thus, when footage is played back, film jitter is less apparent, resulting in a considerably improved viewing experience. When the film is advanced, the registration pins pull back and are re-inserted when the film is stationary once more. 
-<br><br>
-Intermittent cameras enjoy several advantages over other types. For starters, especially with pin-registered versions, the image stability is superior compared to footage from other types. This allows intermittent cameras to be used in motion picture applications where the image on the projection print is blown up several hundred times and jitter is completely unacceptable. Practically any action movie uses one of these cameras (The Matrix is a good example, but there are literally hundreds of others). 
-<br><br>
-Other advantages include being able to record for quite some time, owing to a large film reserve (often over 400 feet), and being able to use a large frame format (intermittent cameras for 70mm film were used by NASA and their resolution is unmatched to this day), but other camera types can also share these advantages. 
-<br><br>
-Now, for some disadvantages. Due to the fact that the film must be accelerated and decelerated at high speeds, there is a severe limitation to the maximum framing rate. 16mm intermittent cameras can do 1,000 fps, but as frame size increases (lengthwise) the speeds rapidly drop. Photosonics' 70mm intermittent can do a mere 125 frames per second. ESTAR base film alleviates some of these issues (as we will see in other camera types as well), but only to a certain extent. Nowadays, even a relatively cheap (sub-$4000) digital high-speed camera can compete with 16mm intermittent cameras, and a high-end model can outperform a 35mm intermittent. 70mm remains unmatched but one rarely needs the ultra-high resolution (above 20 megapixels per image) that it can provide.
-</p>
-</div>
-<hr>
-<p>
-<h2>4. Continuous-feed streak cameras<h2>
-<h3>3.1 What is a streak camera?<h3>
-
-</p>
-<br><br><br>
-More coming soon!
-<br><br><br>
-<address>Last updated December 27, 2021 / <a href ="../index.html">home</a></address>
-</body>
+    <body style="background-color: gray;">
+        <table>
+            <tr>
+                <td style="width:25%">
+                    <!--filler region-->
+                </td>
+                <td style="background-color: white;border-left: 30px solid white;border-right: 30px solid white;">
+                    <!--contents-->
+                    <h1>
+                        How do High-Speed Cameras Work?
+                    </h1>
+                    <h2>
+                        A general guide to the field of high-speed photography
+                    </h2>
+                    <hr>
+                    <p>
+                        This online reference is meant to give an in-depth understanding of all types of high-speed cameras; from the rotating mirror camera first developed in the 40's to modern BSI CMOS image sensors. I won't use any formulas or derivations unless absolutely necessary, as the general concepts behind high-speed cameras are simple to understand given a basic knowledge of physical phenomena. <br><br>
+                        The reader may be inclined to inquire about the sources I have for this information. I'm not planning on a bibliography for now (mostly due to laziness), but please contact me if you are unsure of some information I have provided or if you would like to see a source. <br><br>
+                        Unless otherwise noted everything in here was written/created by me. If you want to copy anything feel free, but I would appreciate a link back to this site. <br><br>
+                        Happy reading!
+                    </p>
+                    <hr>
+                    <div>
+                        <!--table of contents-->
+                        <h2>Table of Contents</h2>
+                        <p>
+                            Due to the large size of this reference it is split up into multiple pages corresponding to a chapter listed below:
+                            <ol>
+                                <li> Sequentially shuttered cameras</li>
+                                <li> Intermittent Cameras</li>
+                                <li> Continuous feed streak (including rotating drum)</li>
+                                <li> Rotating mirror streak cameras</li>
+                                <li> Rotating mirror optically compensated cameras (stationary film)</li>
+                                <li> Rotating mirror optically compensated cameras (moving film)</li>
+                                <li> Image dissection cameras</li>
+                                <li> High-speed holography</li>
+                                <li> Electron converter based systems</li>
+                                <li> Digital High-Speed Cameras</li>
+                                <li> Compressed sensing</li>
+                                <li> Mirror dynamics</li>
+                                <li> Light-sensitive devices</li>
+                                <li> Light sources</li>
+                            </ol>
+                        </p>
+                    </div>
+                    <hr>
+                    <div>
+                        <!--definitions-->
+                        <h2>Definitions</h2>
+                        <p>
+                            Here are some definitions of commonly used words that are potentially confusing.
+                            <ul>
+                                <li>"Framing camera" refers to a camera that takes discrete 2-D images in sequence - for example, a cell phone camera would be a framing camera. In this context it refers to a high speed camera.</li>
+                                <li>"Streak camera" - please refer to the section about streak cameras for more elaboration, but essentially it records a 1-dimensional "image" versus time.</li>
+                                <li>"Temporal resolution" - In essence the maximum frame rate of the camera</li>
+                                <li>"Frame/Framing rate" - Specifies the FPS (frame per second) range of the camera (or sometimes just the maximum FPS)</li>
+                                <li>"Frame count" - Not to be confused with the framing rate, the frame count specifies the number of frames a camera can take in one "burst" before needing to be "reset". For film based systems, the exposed film must be replaced with fresh film before another round of photography can commence, and for many digital systems there is a storage space or readout speed limitation. As a general guideline, most high-speed camera systems that operate above a million fps are severely limited in terms of frame count - usually ~100. This implies that playing the frames in sequence from one of these systems at normal motion picture speeds (24 fps) would give a mere 4 seconds of video. 
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                    <hr>
+                    <div>
+                        <!--why hsp?-->
+                        <h2>Why is high speed photography useful?</h2>
+                        <p>
+                            There are so many applications of high-speed photography that it would take a book to list each niche. Pretty much anything that occurs faster than you can perceive is a potential application, and one will quickly find that this encompasses a very wide range of events. I'll give a few broad areas that are of note. 
+                            <ul>
+                                <li>Explosives characterization/detonics was a big driver of the field in its early years and still is a big use case
+                                <li>Characterization of mechanical devices (jet engines are a good example, but even sewing machines benefit)
+                                <li>Ballistics
+                                <li>Natural phenomena; from birds to arc formation
+                                <li>Lasers and ultrafast optics
+                                <li>And much more!
+                            </ul>
+                        </p>
+                    </div>
+                </td>
+                <td style="width:25%">
+                    <!--filler region-->
+                </td>
+            </tr>
+        </table>
+        <address>Last updated December 28, 2021 / <a href ="../index.html">home</a></address>
+    </body>
 </html>
