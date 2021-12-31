@@ -1,102 +1,72 @@
 <!DOCTYPE html>
-<style>
-	a {
-    	text-decoration: none;
-    	color: #000;
-	}
-	
-</style>
-<html>
-	<head>
-		<link rel="icon" type="image/svg+xml" href="images/favicon/favorite-icon.svg">
-		<link rel="icon" type="image/png" href="images/favicon/favorite-icon.png">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>
-			Young's website homepage!
-		</title>
-	</head>
-	<body>
-		<table>
-			<tr>
-				<!--index Cell-->
-				<td style="background-color:#ffa366;border: 15px solid	#ffa366;width:15%;vertical-align: text-top;">
-					<h2 style="text-align:center;">Site Navigation</h2>
-					<hr>
-					<h3>High-Speed Photography Resources</h3>
-					<a href="./resources/high-speed-photography-guide/hsp-guide-index.html">How Do High-Speed Cameras Work?<br>
-					A general guide to the field of high-speed photography (WIP)</a><br><br>
-					<a href="./resources/hsp-reference-index.html">High speed photography references (WIP)</a>
-					<br>
-					<hr>
-					<h3>Projects</h3>
-					<a href="./projects/subleq.html">One instruction set processor in Logisim</a><br><br>
-				</td>
-				<td style="width:5%">
-					<!--filler column-->
-				</td>
-				<!--information cell-->
-				<td style="vertical-align: text-top;width: 30%;">
-					<h1>
-						Young's website
-					</h1>
-					<hr>
-					<p>
-						Hi, I'm Young He, a first-year undergraduate at the University of Texas at Austin.<br>
-						I'm pursuing a B.S. in Electrical and Computer Engineering (ECE) with a nanotechnology track.<br><br>
-						I have lots of interests, including
-						<ul>
-							<li>Photography and anything to do with optics/imaging</li>
-							<li>Analog circuit design (including RF, I'm currently studying for my Technician class amateur radio license)</li>
-							<li>Semiconductor physics/lithography technology</li>
-							<li>Computer architecture</li>
-							<li>Metrology - I'm a sucker for optical flats</li>
-						</ul>
-					</p>
-					<hr>
-					<p>
-						This website is still very much WIP, but it will serve quite a few purposes.
-						<ul>
-							<li>A personal page for my projects/hobbies</li>
-							<li>A display of some photos I've taken (mostly the good ones)</li>
-							<li>Useful references and technical material I've gathered pertaining to my interests</li>
-							<li>Random stuff</li>
-						</ul>
-						Please use the index to the right to browse around.<br><br>
-						I hope your visit will be informative, entertaining, or both!<br>
-						Additionally, if you have any comments, questions, or suggestions, please email me (address below).
-					</p>
-					<hr>
-					<address>Contact me at [my first name]h@utexas.edu</address>
-					<p><i>This website was done almost entirely with HTML, so please excuse the early 2000's vibe.</i></p>
-				</td>
-				<td >
-					<!--filler column-->
-				</td>
-				<!--picture and random crap-->
-				<td style="background-color:#7C8483;width:210px;border: 10px solid #7C8483;vertical-align: top; padding: 15px;">
-					<table>
-						<tr>	
-							<td>
-								<img src="./images/young-index-image.jpg" alt ="image of me" style="width:200px">
-								<p>Photo of me taken by my friend Jeongwoo Choi</p>
-							</td>
-							<td>
-								<img src="./images/hologram-teapot.jpg" alt="hologram of a teapot with lens in front" style="width:200px">
-								<p>Photo of a <i>real</i> hologram I made; none of that fake "Pepper's ghost" nonsense! Note that the lens in the image actually works.</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="./images/index-example-photo.jpg" alt="photo I took in Canada" style="width:200px">
-								<p>
-									A photo I took using a Zorki 3 in Canada a couple years ago;<br>
-									Film is Fuji C200.
-								</p>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-	</body>
+<html lang="en">
+    <head>
+        <title>Homepage of Young's website</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Homepage and info for young's website">
+        <meta name="author" content="Young He">
+
+        <link rel="icon" type="image/svg+xml" href="https://www.young-he.com/images/favicon/favicon.svg">
+		<link rel="icon" type="image/png" href="https://www.young-he.com/images/favicon/favicon.png">
+
+        <link rel="stylesheet" href="./styles/style.css">
+    </head>
+
+    <body>
+        <div id="site-header">
+            <div id="header">
+                Young's Website
+            </div>
+            <div id="site-navigation">
+                <div><b>Site Navigation</b><br></div>
+                <div><a href="./resources/high-speed-photography-guide/hsp-guide-index.html">How do high-speed cameras work? (WIP)</a> | Projects | Other Resources | Photos</div>
+            </div>
+        </div>
+
+        <figure>
+            <img src="./images/young-index-image.jpg" alt ="image of me" class="left">
+            <p>Photo of me taken by my friend Jeongwoo Choi with his Pixel 6. The image processing on the Pixel borders on magical but the results tend to look a bit unrealistic.</p>
+        </figure>
+        
+
+        <div class="content">
+            <hr>
+            <p>
+                Hi, I'm Young He, a first-year undergraduate at the University of Texas at Austin.<br>
+                I'm pursuing a B.S. in Electrical and Computer Engineering (ECE) with a nanotechnology track.
+            </p>
+            <p>I have lots of interests, including</p>
+            <p>
+                <ul>
+                    <li>Photography and anything to do with optics/imaging</li>
+                    <li>Analog circuit design (including RF, I'm currently studying for my Technician class amateur radio license)</li>
+                    <li>Semiconductor physics/lithography technology</li>
+                    <li>Computer architecture</li>
+                    <li>Metrology - I'm a sucker for optical flats</li>
+                </ul>
+            </p>
+            <figure>
+                <img src="./images/index-example-photo.jpg" alt="photo I took in Canada" class="right">
+                <p>
+                    A photo I took using a Zorki 3 in Canada a couple years ago. Film is Fuji C200.
+                </p>
+            </figure>
+            <hr>
+            <p>
+                This website is still very much WIP, but it will serve quite a few purposes.
+                <ul>
+                    <li>A personal page for my projects/hobbies</li>
+                    <li>A display of some photos I've taken (mostly the good ones)</li>
+                    <li>Useful references and technical material I've gathered pertaining to my interests</li>
+                    <li>Random stuff</li>
+                </ul>
+            </p>
+            <p>Please use the index to the right to browse around. I hope your visit will be informative, entertaining, or both!</p>
+            <p>Additionally, if you have any comments, questions, or suggestions, please email me (address below).</p>
+            <hr> 
+            <p><i>Contact me at [my first name]h@utexas.edu</i></p>
+        </div>
+    </body>
 </html>

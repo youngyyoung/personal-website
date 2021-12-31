@@ -1,0 +1,53 @@
+body {
+    line-height: 1.6;
+    vertical-align: text-top;
+}
+h1, h2, h3, h4, h5, h6 {
+    padding: 0px;
+    background-color: #005555;
+    color: white;
+    text-align: center;
+}
+#site-header {
+    text-align: center;
+}
+#site-header #header {
+    background-color: #005555;
+    font-size: 30px;
+    color: white;
+    padding: 10px;
+}
+#site-header #site-navigation {
+    background-color: lightgray;
+    padding: 10px;
+    font-size: 22px;
+}
+a:link, a:visited {
+    color: black;
+} 
+.content {
+    margin: 40px auto;
+    max-width: 700px;
+    font-size: 18px;
+}
+figure {
+    color: #005555;
+    background-color: honeydew;
+    max-width: 700px;
+    margin: 40px auto;
+    overflow: hidden;
+    font-size: 18px;
+}
+figure p {
+    padding: 30px;
+}
+figure img.left {
+    float: left;
+    width: 200px;
+    padding-right: 30px;
+}
+figure img.right {
+    float: right;
+    width: 200px;
+    padding-left: 30px;
+}
