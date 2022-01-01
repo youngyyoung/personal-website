@@ -8,6 +8,21 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     text-align: center;
 }
+a {
+    padding: 3px;
+    outline: none;
+    text-decoration: none;
+}
+a:link, a:visited {
+    color: black;
+} 
+a:focus, a:hover {
+    background-color: #005555;
+    color: white;
+}
+a:active {
+    color: darkgray;
+}
 #site-header {
     text-align: center;
 }
@@ -22,32 +37,44 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px;
     font-size: 22px;
 }
-a:link, a:visited {
-    color: black;
-} 
+#site-header #page-navigation {
+    background-color: #73628A;
+    padding: 10px;
+    font-size: 22px;
+    color: white;
+}
+#page-navigation a:link, #page-navigation a:visited {
+    color:white;
+}
 .content {
     margin: 40px auto;
     max-width: 700px;
     font-size: 18px;
 }
 figure {
-    color: #005555;
     background-color: honeydew;
-    max-width: 700px;
     margin: 40px auto;
     overflow: hidden;
-    font-size: 18px;
 }
-figure p {
-    padding: 30px;
+figure div {
+    padding: 20px;
 }
-figure img.left {
+figure img {
+    width: 40%;
+    height: auto;
+}
+figure.left img{
     float: left;
-    width: 200px;
-    padding-right: 30px;
+    padding-right: 20px;
 }
-figure img.right {
+figure.right img{
     float: right;
-    width: 200px;
-    padding-left: 30px;
+    padding-left: 20px;
+}
+figure.top img{
+    width: 100%;
+    height: auto;
+}
+figure.top div{
+    padding-top: 10px;
 }

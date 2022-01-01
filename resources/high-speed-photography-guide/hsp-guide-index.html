@@ -1,117 +1,37 @@
 <!DOCTYPE html>
-<style>
-	a {
-    	text-decoration: none;
-    	color: #000;
-	}
-</style>
-<html>
+<html lang="en">
     <head>
-        <title>
-            How do High-Speed Cameras Work?
-        </title>
+        <title>How do high-speed cameras work?</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A guide to the field of high-speed photography and high-speed cameras">
+        <meta name="author" content="Young He">
+
+        <link rel="icon" type="image/svg+xml" href="https://www.young-he.com/images/favicon/favicon.svg">
+		<link rel="icon" type="image/png" href="https://www.young-he.com/images/favicon/favicon.png">
+
+        <link rel="stylesheet" href="../../styles/style.css">
     </head>
 
-    <body style="background-color: gray;">
-        <table>
-            <tr>
-                <td style="width:20%;vertical-align: text-top;background-color: #ffa366;padding: 15px 5px 15px 15px;border: gray solid 15px;">
-                    <!--HSPguide navigation-->
-                    <h3 style="text-align: center;">
-                        Navigation
-                    </h3>
-                    <hr>
-                    <ul>
-                        <li><a href="./hsp-guide-index.html">Introduction</a></li>
-                        <li><a href="#">Sequentially shuttered cameras</a></li>
-                        <li><a href="./intermittent.html">Intermittent cameras</a></li>
-                        <li><a href="#">Continuous feed streak</a></li>
-                        <li><a href="#">Rotating mirror streak cameras</a></li>
-                        <li><a href="#">Rotating mirror optical compensation (stationary sensor)</a></li>
-                        <li><a href="#">Rotating mirror optical compensation (moving film)</a></li>
-                        <li><a href="#">Image dissection cameras</a></li>
-                        <li><a href="#">High-speed holography</a></li>
-                    </ul>
-                </td>
-                <td style="background-color: white;padding:15px 15px 15px 10px;border: gray solid 15px;">
-                    <!--contents-->
-                    <h1>
-                        How do High-Speed Cameras Work?
-                    </h1>
-                    <h2>
-                        A general guide to the field of high-speed photography
-                    </h2>
-                    <hr>
-                    <p>
-                        This online reference is meant to give an in-depth understanding of all types of high-speed cameras; from the rotating mirror camera first developed in the 40's to modern BSI CMOS image sensors. I won't use any formulas or derivations unless absolutely necessary, as the general concepts behind high-speed cameras are simple to understand given a basic knowledge of physical phenomena. <br><br>
-                        I'm not planning on a bibliography for now (mostly due to laziness), but please contact me if you would like to see the source for a specific piece of information.<br><br>
-                        Unless otherwise noted everything in here was written/created by me. Please do not copy anything without permission.<br><br>
-                        Happy reading, and please contact me if you have any questions!
-                    </p>
-                    <hr>
-                    <div>
-                        <!--table of contents-->
-                        <h2>Table of Contents</h2>
-                        <p>
-                            Due to the large size of this reference it is split up into multiple pages corresponding to a chapter listed below:
-                            <ol>
-                                <li> Sequentially shuttered cameras</li>
-                                <li> Intermittent Cameras</li>
-                                <li> Continuous feed streak (including rotating drum)</li>
-                                <li> Rotating mirror streak cameras</li>
-                                <li> Rotating mirror optically compensated cameras (stationary film)</li>
-                                <li> Rotating mirror optically compensated cameras (moving film)</li>
-                                <li> Image dissection cameras</li>
-                                <li> High-speed holography</li>
-                                <li> Electron converter based systems</li>
-                                <li> Digital High-Speed Cameras</li>
-                                <li> Compressed sensing</li>
-                                <li> Mirror dynamics</li>
-                                <li> Light-sensitive devices</li>
-                                <li> Light sources</li>
-                            </ol>
-                        </p>
-                    </div>
-                    <hr>
-                    <div>
-                        <!--definitions-->
-                        <h2>Definitions</h2>
-                        <p>
-                            Here are some definitions of commonly used words that are potentially confusing.
-                            <ul>
-                                <li>"Framing camera" refers to a camera that takes discrete 2-D images in sequence - for example, a cell phone camera would be a framing camera. In this context it refers to a high speed camera.</li>
-                                <li>"Streak camera" - please refer to the section about streak cameras for more elaboration, but essentially it records a 1-dimensional "image" versus time.</li>
-                                <li>"Temporal resolution" - In essence the maximum frame rate of the camera</li>
-                                <li>"Frame/Framing rate" - Specifies the FPS (frame per second) range of the camera (or sometimes just the maximum FPS)</li>
-                                <li>"Frame count" - Not to be confused with the framing rate, the frame count specifies the number of frames a camera can take in one "burst" before needing to be "reset". For film based systems, the exposed film must be replaced with fresh film before another round of photography can commence, and for many digital systems there is a storage space or readout speed limitation. As a general guideline, most high-speed camera systems that operate above a million fps are severely limited in terms of frame count - usually ~100. This implies that playing the frames in sequence from one of these systems at normal motion picture speeds (24 fps) would give a mere 4 seconds of video. 
-                                </li>
-                            </ul>
-                        </p>
-                    </div>
-                    <hr>
-                    <div>
-                        <!--why hsp?-->
-                        <h2>Why is high speed photography useful?</h2>
-                        <p>
-                            There are so many applications of high-speed photography that it would take a book to list each niche. Pretty much anything that occurs faster than the human eye can perceive is a potential application, and one will quickly find that this encompasses a very wide range of events. I'll give a few broad areas that are of note.<br><br>
-                            Of course, the framing rate that is necessary varies widely between events, from 10^2 fps to 10^14 fps and above. 
-                            <ul>
-                                <li>Explosives characterization/detonics was a big driver of the field in its early years and still is a big use case</li>
-                                <li>Characterization of mechanical devices (jet engines are a good example, but even sewing machines benefit)</li>
-                                <li>Ballistics</li>
-                                <li>Natural phenomena; from birds to arc formation</li>
-                                <li>Lasers and ultrafast optics</li>
-                                <li>And much more!</li>
-                            </ul>
-                        </p>
-                    </div>
-                    <br>
-                    <address>Contact me at [my first name]h@utexas.edu / Last updated December 29, 2021 / <a href ="../../index.html">home</a></address>
-                </td>
-                <td style="width:25%">
-                    <!--filler region and images-->
-                </td>
-            </tr>
-        </table>
+    <body>
+        <div id="site-header">
+            <div id="header">
+                How do high-speed cameras work?<br>
+                A guide to the field of high-speed photography
+            </div>
+            <div id="site-navigation">
+                <div><b>Site Navigation</b><br></div>
+                <div>
+                    <a href="./index.html">Home</a> | <a href="./resources/high-speed-photography-guide/hsp-guide-index.html">How do high-speed cameras work? (WIP)</a> | <a href="./photos.html">Photography</a> | <a href="./projects.html">Projects</a> | <a href="./blog.html">Blog</a> | <a href="./resources.html">Other Resources</a>
+                </div>
+            </div>
+            <div id="page-navigation">
+                <div><a href="#">im stuff</a></div>
+            </div>
+        </div>
+        <div class="content">
+            
+        </div>
     </body>
 </html>
