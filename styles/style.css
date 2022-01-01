@@ -3,12 +3,12 @@ body {
     vertical-align: text-top;
 }
 h1, h2, h3, h4, h5, h6 {
-    padding: 0px;
+    padding: 10px;
     background-color: #005555;
     color: white;
-    text-align: center;
+    text-align: left;
 }
-a {
+#site-header a {
     padding: 3px;
     outline: none;
     text-decoration: none;
@@ -16,7 +16,7 @@ a {
 a:link, a:visited {
     color: black;
 } 
-a:focus, a:hover {
+#site-header a:focus, #site-header a:hover {
     background-color: #005555;
     color: white;
 }
@@ -51,6 +51,7 @@ a:active {
     max-width: 700px;
     font-size: 18px;
 }
+
 figure {
     background-color: honeydew;
     margin: 40px auto;
