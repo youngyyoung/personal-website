@@ -20,7 +20,7 @@ a:link, a:visited {
     background-color: #005555;
     color: white;
 }
-a:active {
+#site-header a:active {
     color: darkgray;
 }
 #site-header {
@@ -45,6 +45,12 @@ a:active {
 }
 #page-navigation a:link, #page-navigation a:visited {
     color:white;
+}
+#page-navigation a:active {
+    color: darkgray;
+}
+a:active {
+    color: darkgray;
 }
 .content {
     margin: 40px auto;
