@@ -85,3 +85,11 @@ figure.top img{
 figure.top div{
     padding-top: 10px;
 }
+
+table{
+    border: 1px solid black;
+}
+th, td{
+    border: 1px solid black;
+    padding: 5px;
+}

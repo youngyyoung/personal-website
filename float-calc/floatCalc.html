@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Arbitrary length floating point conversion tool</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A floating point calculator of sorts">
+        <meta name="author" content="Young He">
+
+        <link rel="icon" type="image/svg+xml" href="https://www.young-he.com/images/favicon/favicon.svg">
+		<link rel="icon" type="image/png" href="https://www.young-he.com/images/favicon/favicon.png">
+
+        <link rel="stylesheet" href="../styles/style.css">
+        <script src="./float-calc.js"></script>
+    </head>
+
+    <body>
+        <div class="content">
+            <p>A simple floating point conversion tool that allows for an arbitrary size float. It also gives useful information about min/max values.</p>
+            <p>I have not done too much testing so I would still double check the output, specifically the decimal representations.</p>
+            <h4>Instructions</h4>
+            <p>This is IEEE 754 compatible as far as I know. (32 bit floating point value with 1 sign bit, 8 exponent bits, and 23 mantissa bits)</p>
+            <p>The binary values are specified as (1 bit sign) (x bits exponent) (y bits mantissa)</p>
+            <p>Everything is given as a magnitude, so simply negate a value if you need, say, the smallest <i>possible</i> normalized value.</p>
+            <h4>Notes</h4>
+            <p>The 1 sign bit is assumed.</p>
+            <p>Please note that the maximum supported exponent bit width is about 53. This shouldn't be an issue as even the octuple precision floating-point format only has 19 exponent bits.</p>
+            <hr>
+            <label for="exponent">Number of bits in the exponent</label>
+            <br>
+            <input type="text" name="exponent" id="exponent" placeholder="Integers only, please">
+            <hr>
+            <label for="mantissa">Number of bits in the mantissa (or significand, or coefficient, or argument, etc)</label>
+            <br>
+            <input type="text" name="mantissa" id="mantissa" placeholder="Integers only, please">
+            <hr>
+            <label for="binVal">Optional: Binary value to convert</label>
+            <br>
+            <input type="text" name="binVal" id="binVal" placeholder="Binary only, please">
+            <hr>
+            <label for="decVal">Optional: Decimal value to convert</label>
+            <br>
+            <input type="text" name="decVal" id="decVal" placeholder="Decimal value only, please">
+            <hr>
+
+            <button onclick="calculate()">Calculate</button>
+            <br><br>
+            <table>
+                <tr>
+                    <th>- Type -</th>
+                    <th>- Scientific notation (Binary) -</th>
+                    <th>- Binary -</th>
+                    <th>- Scientific notation (Decimal) -</th>
+                </tr>
+                <tr>
+                    <td>Smallest normalized value</td>
+                    <td id="SN_SB"></td>
+                    <td id="SN_B"></td>
+                    <td id="SN_D"></td>
+                </tr>
+                <tr>
+                    <td>Largest normalized value</td>
+                    <td id="LN_SB"></td>
+                    <td id="LN_B"></td>
+                    <td id="LN_D"></td>
+                </tr>
+                <tr>
+                    <td>Smallest denormalized value</td>
+                    <td id="SD_SB"></td>
+                    <td id="SD_B"></td>
+                    <td id="SD_D"></td>
+                </tr>
+                <tr>
+                    <td>Largest denormalized value</td>
+                    <td id="LD_SB"></td>
+                    <td id="LD_B"></td>
+                    <td id="LD_D"></td>
+                </tr>
+                <tr>
+                    <td>Input - binary to decimal</td>
+                    <td>not implemented</td>
+                    <td>not implemented</td>
+                    <td>not implemented</td>
+                </tr>
+                <tr>
+                    <td>Input - decimal to binary</td>
+                    <td>not implemented</td>
+                    <td>not implemented</td>
+                    <td>not implemented</td>
+                </tr>
+            </table>
+            <hr>
+            <address>Contact me at [my first name]h@utexas.edu</address>
+            <div><i>Sorry about the lack of a navigation bar. | <a href="../index.html">back</a> | <a href="https://young-he.com/index.html">home</a></i></div>
+        </div>
+    </body>
+</html>
