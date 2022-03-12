@@ -4,6 +4,7 @@ var offset;
 
 var decInt = "0";
 var decFrac = "0";
+var decBoth = "0";
 
 
 function calculate() {
@@ -15,12 +16,13 @@ function calculate() {
 
     var binVal = inputs[2].value;
 
+
     var decVal = inputs[3].value;
     
     var decStr = decVal.split(".");
     decInt = decStr[0];
     decFrac = decStr[1];
-
+    decBoth = decInt + decFrac;
     setSN_SB();
     setSN_B();
     setSN_D();
@@ -34,16 +36,115 @@ function calculate() {
     setLD_B();
     setLD_D();
     //dec2bin();
+    document.getElementById("bin2dec").textContent = bin2dec(binVal, mantissaBits, exponentBits);
+}
+//input string of binary values, number of mantissa bits, and number of exponent bits
+    //format of binary string input
+    //(1 sign bit) (exponent) (mantissa)
+//returns string in scientific notation of the base 10 representation of the float
+//returns "Invalid input" if not properly specified
+function bin2dec(binary, mantissaB, exponentB) {
+    //check if lengths are correct
+    if(binary.length != (mantissaB + exponentB + 1)) {
+        return "Invalid input";
+    }
+    //check if the binary input is in fact a binary value
+    for(let i = 0; i < binary.length; i ++) {
+        if(binary[i] != 0 && binary[i] != 1)
+            return "Invalid input";
+    }
+    var sign = "+-";
+    sign = sign[parseInt(binary.substring(0,1))]; //stores sign of value
+
+    var exponentBin = binary.substring(1, 1 + exponentB);
+    var exponent = BigInt(0);
+    var offset = (BigInt(2) ** BigInt(exponentB - 1)) - BigInt(1); //offset of float
+    //convert binary exponent value to BigInt, store in exponent
+    for(let i = 1; i <= exponentBin.length; i ++) {
+        exponent += BigInt(exponentBin[exponentBin.length - i]) * (BigInt(2) ** BigInt(i - 1));
+    }
+
+    var divBy = BigInt(2) ** BigInt(mantissaB);
+    var mantissaBin = binary.substring(1 + exponentB);
+    var mantissa = BigInt(0);
+
+    //convert mantissa to BigInt value
+    for(let i = 1; i <= mantissaBin.length; i ++) {
+        mantissa += BigInt(mantissaBin[mantissaBin.length - i]) * (BigInt(2) ** BigInt(i - 1));
+    }
+    //check for infinity
+    if(exponent == (BigInt(2) ** BigInt(exponentB)) - BigInt(1)) {
+        if(mantissa != BigInt(0))
+            return "NaN"
+        else 
+            return sign + "infinity";
+    }
+    //check for subnormal values
+    if(exponent != BigInt(0)) {
+        mantissa += divBy;
+    }
+    else {
+        exponent += BigInt(1);
+    }
+
+    var exponentOff = exponent - offset;
+    var signExp = BigInt(0);
+    if(exponentOff < 0) {
+        for(let i = BigInt(0); i > exponentOff; i = i - BigInt(1)) {
+            divBy = divBy * BigInt(2);
+        }
+        signExp = BigInt(-1);
+    }
+    if(exponentOff > 0) {
+        for(let i = BigInt(0); i < exponentOff; i += BigInt(1)) {
+            mantissa = mantissa * BigInt(2);
+        }
+        signExp = BigInt(1);
+    }
+
+    var counter = BigInt(0);
+    while(mantissa % divBy != 0) {
+        counter += BigInt(1);
+        mantissa = mantissa * BigInt(10);
+    }
+    var result = mantissa / divBy;
+    var resultStr = result.toString();
+
+    var ret = sign + resultStr.substring(0, 1) + "." + resultStr.substring(1) + "E" + (counter * BigInt(-1) + BigInt(resultStr.length - 1)).toString();
+    return ret;
 }
 function dec2bin() {
-    //var minval = 
+    var smallestInc = document.getElementById("SD_D").textContent;
+    smallestInc = smallestInc.split("e")[1];
+    var small = BigInt(smallestInc);
+    if(small < 0) {
+        small = small * BigInt(-1);
+    }
+
+    var largestVal = BigInt(2) ** BigInt(offset) ;
+    largestVal = largestVal * (BigInt(10) ** (small + 5));
+    var counter = offset + mantissaBits;
+    
+    
+    while(counter > 0) {
+
+    }
+    var fracBits = mantissaBits;
+
+
+    for(let i = 0; i < mantissaBits; i ++) {
+        mantissa += "0";
+    }
+    var integer = BigInt(decInt);
+    
+
+    var minval = BigInt(1);
+    while(minval % BigInt(2) ** mantissaBits) {
+        minval * BigInt(10);
+    }
 
     var fraction = BigInt(decFrac);
     fraction = fraction * shiftTen;
-
-
-    var integer = BigInt(decInt);
-
 
 }
 function setLD_SB() {
